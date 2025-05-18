@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity, String> {
 
-    @Query(value = "SELECT * FROM users WHERE userid = :userid AND username = :username AND password = :password", nativeQuery = true)
+    @Query(value = "SELECT * FROM users WHERE userid = :userid AND username = :username AND password_hash :password", nativeQuery = true)
     UserEntity validateUser(@Param("userid") String userid,
                             @Param("username") String username,
                             @Param("password") String password);
